@@ -14,5 +14,14 @@
         <label for="fecha">Escoge una fecha</label><input type="date" name="fecha" value="<?php echo date('Y-m-d')?>" min="<?php echo date('Y-m-d')?>" required>
         <input type="submit" name="enviar" value="Buscar asientos">
     </form>
+    <?php
+    if(isset($_POST['enviar'])){
+        echo "<img src=img/fondoPiano.png width=700px>";
+
+
+
+
+    }
+    ?>
 </body>
 </html>
