@@ -6,7 +6,6 @@
             $this->conex = new mysqli('localhost','root','','teatropiano');
         }
 
-
         function pintar(){
             $sentencia = "SELECT * FROM asientos";
             $datos = $this->conex->query($sentencia);
