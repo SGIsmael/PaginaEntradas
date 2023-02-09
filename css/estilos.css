@@ -1,0 +1,72 @@
+body{
+    margin:0;
+    background-image: url('../img/fondo.jpg');
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: center;
+}
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#visibleHeader{
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(33, 33, 36);
+}
+#visibleHeader form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+#visibleHeader form input{
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 0px 0px 20px 10px rgb(156, 156, 156);
+}
+/*Usaremos este div vacío para ocupar el espacio debajo de fixed*/
+#controlHeader{
+    width: 100%;
+    height: 120px;
+}
+
+#visibleFooter{
+    background-color: rgb(33, 33, 36);
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 30px;
+    color:white;
+    text-align: center;
+}
+/*Este div invisible evitará que el contenido se introduzca por debajo del footer*/
+#controlFooter{
+    width: 100%;
+    height: 30px;
+}
+
+
+/*Aqui trataremos el body*/
+#imagenCentral{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#centrarAsientos{
+    display: flex;
+    justify-content: center;
+}
+
+#asientos{
+    z-index: -1;
+    position:relative;
+    width: 500px;
+    height: 500px;
+}
+
+#asientos img{
+    box-shadow: 0px 0px 2px black;
+}
