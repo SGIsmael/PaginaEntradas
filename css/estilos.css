@@ -70,3 +70,12 @@ body{
 #asientos img{
     box-shadow: 0px 0px 2px black;
 }
+
+
+
+#pagarCompra{
+    z-index: -1;
+    position: absolute;
+    right: 40px;
+    top:150px;
+}
