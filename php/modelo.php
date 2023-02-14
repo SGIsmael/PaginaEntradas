@@ -25,7 +25,7 @@
                     }else if($estado['usuario'] == $_SESSION['usuario'] && $estado['ocupado']==1){
                         $respuesta.="src='img/asientoBloqueado.png' onclick='cambia(".$dato['cod_asiento'].")' >";
                     }else{
-                        $respuesta.="src='img/asientoOcupado.png' >";
+                        $respuesta.="src='img/asientoBloqueado.png' >";
                     }
                 }else{
                     $respuesta.=" src='img/asientoLibre.png' onclick='cambia(".$dato['cod_asiento'].")'>";
@@ -57,8 +57,7 @@
                 VALUES(".$asiento.",'".$_SESSION['fecha']."',1,".$_SESSION['usuario'].",NOW())";
 
             }
-            $sentencia = "INSERT INTO `reservas` (`asiento`, `fecha`, `ocupado`, `usuario`, `cuando`)
-             VALUES ('4', '2023-02-14', '2', 'a@a.c', CURRENT_DATE())";
+            $sentencia = "INSERT INTO `reservas` (`asiento`, `fecha`, `ocupado`, `usuario`, `cuando`) VALUES ('2', '2023-02-14', '2', '123@123.com', '2023-2-14')";
             $this->conex->query($sentencia);
         }
 

@@ -22,7 +22,6 @@ function refresca(){
 
 function cambia(asiento){
     //Va a enviar a actualiza el asiento a cambiar
-    alert('sentenciao');
     ajax2.open('POST','ajax/actualiza.php',true);
     ajax2.setRequestHeader('Content-Type',"application/x-www-form-urlencoded");
     ajax2.send('asiento='+asiento);
