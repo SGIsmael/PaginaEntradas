@@ -39,7 +39,8 @@
                     <input type="submit">
                 </form>
             </div>
-    <?php }else{
+    <?php
+          }else{
             $_SESSION['usuario'] = 0;
             $_SESSION['fecha'] = 0;  
           }

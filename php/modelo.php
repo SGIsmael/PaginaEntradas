@@ -12,11 +12,7 @@
             $conjuntoDatos = $this->conex->query($sentencia);
             $respuesta = "";
             while($dato = $conjuntoDatos->fetch_array()){
-                $respuesta.= '<img style="position:absolute;
-                                left:'.$dato['x'].'px;
-                                top:'.$dato['y'].'px;
-                                height:60px;"
-                                ';
+                $respuesta.= '<img style="position:absolute;left:'.$dato['x'].'px;top:'.$dato['y'].'px;height:60px;z-index:10;"';
                 //Buscamos el usuario y la situacion del asiento
                 $sentencia = "SELECT ocupado, usuario FROM reservas
                               WHERE fecha = '".$_SESSION['fecha']."'
@@ -25,14 +21,14 @@
 
                 if($estado = $reserva->fetch_array()){
                     if($estado['ocupado']==2){
-                        $respuesta.="src='asientoOcupado.png' >";
+                        $respuesta.="src='img/asientoOcupado.png' >";
                     }else if($estado['usuario'] == $_SESSION['usuario'] && $estado['ocupado']==1){
-                        $respuesta.="src='asientoBloqueado.png' onclick='cambia(".$dato['cod_asiento'].")' >";
+                        $respuesta.="src='img/asientoBloqueado.png' onclick='cambia(".$dato['cod_asiento'].")' >";
                     }else{
-                        $respuesta.="src='asientoOcupado.png' >";
+                        $respuesta.="src='img/asientoOcupado.png' >";
                     }
                 }else{
-                    $respuesta.="src='img/asientoLibre.png' onclick='cambia(".$dato['cod_asiento'].")' >";
+                    $respuesta.=" src='img/asientoLibre.png' onclick='cambia(".$dato['cod_asiento'].")'>";
                 }
             }
 
@@ -41,7 +37,6 @@
                           WHERE (now()-cuando)>30
                           AND ocupado = 1";
             $this->conex->query($sentencia);
-
             return $respuesta;
         }
 
@@ -60,7 +55,10 @@
                 $sentencia = "INSERT INTO reservas 
                 (asiento,fecha,ocupado,usuario,cuando)
                 VALUES(".$asiento.",'".$_SESSION['fecha']."',1,".$_SESSION['usuario'].",NOW())";
+
             }
+            $sentencia = "INSERT INTO `reservas` (`asiento`, `fecha`, `ocupado`, `usuario`, `cuando`)
+             VALUES ('4', '2023-02-14', '2', 'a@a.c', CURRENT_DATE())";
             $this->conex->query($sentencia);
         }
 

@@ -33,6 +33,7 @@ body{
 }
 
 #visibleFooter{
+    z-index: 10;
     background-color: rgb(33, 33, 36);
     position: fixed;
     bottom: 0px;
@@ -43,6 +44,7 @@ body{
 }
 /*Este div invisible evitará que el contenido se introduzca por debajo del footer*/
 #controlFooter{
+    z-index: 9;
     width: 100%;
     height: 30px;
 }
@@ -61,7 +63,6 @@ body{
 }
 
 #asientos{
-    z-index: -1;
     position:relative;
     width: 500px;
     height: 500px;
@@ -74,7 +75,6 @@ body{
 
 
 #pagarCompra{
-    z-index: -1;
     position: absolute;
     right: 40px;
     top:150px;

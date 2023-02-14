@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-02-2023 a las 13:12:41
+-- Tiempo de generación: 14-02-2023 a las 13:38:02
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -38,10 +38,10 @@ CREATE TABLE `asientos` (
 --
 
 INSERT INTO `asientos` (`cod_asiento`, `x`, `y`) VALUES
-(1, 0, -60),
-(2, 40, -60),
-(3, 430, -60),
-(4, 470, -60),
+(1, 0, -70),
+(2, 40, -70),
+(3, 430, -70),
+(4, 470, -70),
 (5, 0, 0),
 (6, 40, 0),
 (7, 80, 0),
@@ -111,7 +111,30 @@ INSERT INTO `asientos` (`cod_asiento`, `x`, `y`) VALUES
 (71, 350, 420),
 (72, 390, 420),
 (73, 430, 420),
-(74, 470, 420);
+(74, 470, 420),
+(75, 470, -70);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reservas`
+--
+
+CREATE TABLE `reservas` (
+  `asiento` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `ocupado` int(1) NOT NULL,
+  `usuario` varchar(255) NOT NULL,
+  `cuando` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `reservas`
+--
+
+INSERT INTO `reservas` (`asiento`, `fecha`, `ocupado`, `usuario`, `cuando`) VALUES
+(1, '2023-02-14', 2, 'a@b.c', '2023-02-14'),
+(3, '2023-02-14', 2, 'a@a.c', '2023-02-14');
 
 --
 -- Índices para tablas volcadas
@@ -124,6 +147,12 @@ ALTER TABLE `asientos`
   ADD PRIMARY KEY (`cod_asiento`);
 
 --
+-- Indices de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  ADD PRIMARY KEY (`asiento`,`fecha`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -131,7 +160,17 @@ ALTER TABLE `asientos`
 -- AUTO_INCREMENT de la tabla `asientos`
 --
 ALTER TABLE `asientos`
-  MODIFY `cod_asiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `cod_asiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`asiento`) REFERENCES `asientos` (`cod_asiento`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

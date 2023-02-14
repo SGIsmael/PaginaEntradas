@@ -1,4 +1,4 @@
-var segundos = 1; //Tiempo de refresco
+var segundos = 1.5; //Tiempo de refresco
 var divID = 'asientos'; //Id del div a actualizar
 var ajax1;
 var ajax2;
@@ -22,9 +22,8 @@ function refresca(){
 
 function cambia(asiento){
     //Va a enviar a actualiza el asiento a cambiar
-    alert('Llega a su fin');
+    alert('sentenciao');
     ajax2.open('POST','ajax/actualiza.php',true);
     ajax2.setRequestHeader('Content-Type',"application/x-www-form-urlencoded");
     ajax2.send('asiento='+asiento);
-    alert('Llega a su fin');
 }
