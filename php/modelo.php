@@ -12,7 +12,7 @@
             $conjuntoDatos = $this->conex->query($sentencia);
             $respuesta = "";
             while($dato = $conjuntoDatos->fetch_array()){
-                $respuesta.= '<img style="position:absolute;left:'.$dato['x'].'px;top:'.$dato['y'].'px;height:60px;z-index:10;"';
+                $respuesta.= '<img style="position:absolute;left:'.$dato['x'].'px;top:'.$dato['y'].'px;height:60px;"';
                 //Buscamos el usuario y la situacion del asiento
                 $sentencia = "SELECT ocupado, usuario FROM reservas
                               WHERE fecha = '".$_SESSION['fecha']."'
