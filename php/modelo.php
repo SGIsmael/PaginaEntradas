@@ -56,7 +56,6 @@
                 (asiento,fecha,ocupado,usuario,cuando)
                 VALUES(".$asiento.",'".$_SESSION['fecha']."',1,'".$_SESSION['usuario']."',NOW())";
             }
-            $sentencia = "INSERT INTO `reservas` (`asiento`, `fecha`, `ocupado`, `usuario`, `cuando`) VALUES ('2', '2023-02-14', '2', '123@123.com', '2023-2-14')";
             $this->conex->query($sentencia);
         }
 
