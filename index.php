@@ -24,7 +24,7 @@
     </header>
     <main>
     <?php if(isset($_POST['enviar'])){ 
-            $_SESSION['correo'] = $_POST['correo'];
+            $_SESSION['usuario'] = $_POST['correo'];
             $_SESSION['fecha'] = $_POST['fecha'];
     ?>
 
@@ -32,13 +32,14 @@
                 <img src="img/fondoPiano.png" width="600px">
             </div>
             <div id=centrarAsientos>
-                <div id=asientos></div> 
+                <div id=asientos></div>
+                <div id=pagarCompra>
+                    <form action="ajax/paga.php" method="post">
+                        <input type="submit" value="Pagar">
+                    </form>
+                </div>
             </div>
-            <div id=pagarCompra>
-                <form>
-                    <input type="submit">
-                </form>
-            </div>
+            
     <?php
           }else{
             $_SESSION['usuario'] = 0;

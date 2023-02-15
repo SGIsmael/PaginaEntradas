@@ -54,16 +54,21 @@
             }else{
                 $sentencia = "INSERT INTO reservas 
                 (asiento,fecha,ocupado,usuario,cuando)
-                VALUES(".$asiento.",'".$_SESSION['fecha']."',1,".$_SESSION['usuario'].",NOW())";
-
+                VALUES(".$asiento.",'".$_SESSION['fecha']."',1,'".$_SESSION['usuario']."',NOW())";
             }
-            $sentencia = "INSERT INTO `reservas` (`asiento`, `fecha`, `ocupado`, `usuario`, `cuando`)
-             VALUES ('4', '2023-02-14', '2', 'a@a.c', CURRENT_DATE())";
             $this->conex->query($sentencia);
         }
 
+        //Pagamos las entradas seleccionadas
+        function pagar(){
+            $sentencia = "UPDATE reservas SET ocupado = 2
+                        WHERE ocupado = 1
+                        AND usuario = '".$_SESSION['usuario']."'";
+            $this->conex->query($sentencia);
+            header('location:../index.php');
+        }
 
-        //Evitamos meter 70 inserciones a mano 
+       //Evitamos meter 70 inserciones a mano 
         function insertarTodo(){
             $x = 0; //left
             $y = 0;//top
