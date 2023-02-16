@@ -20,7 +20,9 @@
                 $reserva = $this->conex->query($sentencia);
 
                 if($estado = $reserva->fetch_array()){
-                    if($estado['ocupado']==2){
+                    if($estado['ocupado']==2 && $estado['usuario'] == $_SESSION['usuario']){
+                        $respuesta.="src='img/asientoOcupadoPorMi.png' >";
+                    }else if($estado['ocupado']==2){
                         $respuesta.="src='img/asientoOcupado.png' >";
                     }else if($estado['usuario'] == $_SESSION['usuario'] && $estado['ocupado']==1){
                         $respuesta.="src='img/asientoBloqueado.png' onclick='cambia(".$dato['cod_asiento'].")' >";
@@ -65,7 +67,6 @@
                         WHERE ocupado = 1
                         AND usuario = '".$_SESSION['usuario']."'";
             $this->conex->query($sentencia);
-            header('location:../index.php');
         }
 
        //Evitamos meter 70 inserciones a mano 

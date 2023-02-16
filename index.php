@@ -44,6 +44,11 @@
           }else{
             $_SESSION['usuario'] = 0;
             $_SESSION['fecha'] = 0;  
+            echo "
+                <div id=saludo>
+                    <h1>Bienvenido al concierto de piano</h1>
+                    <p>Usa la barra superior para introducir tu correo y una fecha válida y <br>¡Comienza a buscar tus asientos para el concierto!</p>   
+                </div>";
           }
     ?>
     </main>
