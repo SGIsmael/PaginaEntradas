@@ -82,7 +82,7 @@
                     $x=0;
                 }else{
                     if($x == 160){
-                        $x=310; 
+                        $x=310;//La altura del pasillo
                     }else{
                         $x+=40;
                     }
