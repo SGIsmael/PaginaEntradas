@@ -27,7 +27,7 @@
                     }else if($estado['usuario'] == $_SESSION['usuario'] && $estado['ocupado']==1){
                         $respuesta.="src='img/asientoBloqueado.png' onclick='cambia(".$dato['cod_asiento'].")' >";
                     }else{
-                        $respuesta.="src='img/asientoBloqueado.png' >";
+                        $respuesta.="src='img/asientoOcupado.png' >";
                     }
                 }else{
                     $respuesta.=" src='img/asientoLibre.png' onclick='cambia(".$dato['cod_asiento'].")'>";

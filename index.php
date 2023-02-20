@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include('php/modelo.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,11 +24,11 @@
         <div id=controlHeader></div>
     </header>
     <main>
-    <?php if(isset($_POST['enviar'])){ 
-            $_SESSION['usuario'] = $_POST['correo'];
-            $_SESSION['fecha'] = $_POST['fecha'];
+    <?php 
+        if(isset($_POST['enviar'])){ 
+                $_SESSION['usuario'] = $_POST['correo'];
+                $_SESSION['fecha'] = $_POST['fecha'];
     ?>
-
             <div id=imagenCentral>
                 <img src="img/fondoPiano.png" width="600px">
             </div>
@@ -38,10 +39,9 @@
                         <input type="submit" value="Pagar">
                     </form>
                 </div>
-            </div>
-            
+            </div>            
     <?php
-          }else{
+        }else{
             $_SESSION['usuario'] = 0;
             $_SESSION['fecha'] = 0;  
             echo "
@@ -49,7 +49,7 @@
                     <h1>Bienvenido al concierto de piano</h1>
                     <p>Usa la barra superior para introducir tu correo y una fecha válida y <br>¡Comienza a buscar tus asientos para el concierto!</p>   
                 </div>";
-          }
+        }
     ?>
     </main>
     <footer>
